@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    .column {
+        float: left;
+        width: 50%;
+        padding: 10px;
+        height: 300px;
+    }
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+</style>
+</head>
+<body>
+<div class = "row">
+    <div class="column" style="background-color:#aaa;">
+        <div><app-list [posts]="posts" 
+          (openPost)="openPost($event);" 
+          (newPost)="newPost();"></app-list></div>
+    </div>
+    <div class="column" style="background-color:#bbb;">
+        <div *ngIf='(appState == 1)'><app-edit [post]="currentPost" 
+          (previewPost)="previewPost($event);"
+          (savePost)="savePost($event);" 
+          (deletePost)="deletePost($event);"></app-edit></div>>
+        <div *ngIf='(appState == 2)'><app-preview [post]="currentPost" 
+            (editPost)="editPost($event);"></app-preview></div>>
+    </div>>
+</div>
+</body>
+</html>

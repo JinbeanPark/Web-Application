@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog post</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div>
+    <% 
+    var reader = new commonmark.Parser();
+    var writer = new commonmark.HtmlRenderer();
+
+    for (var i = 0; i < documents.length; i++) {
+      var renTitle = writer.render(reader.parse(documents[i].title));
+      var renBody = writer.render(reader.parse(documents[i].body)); 
+      var createTime = new Date();
+      createTime.setTime(documents[i].created);
+      var modifiedTime = new Date();
+      modifiedTime.setTime(documents[i].modified);
+      %>
+      <h1>Title: <%-renTitle %></h1>
+      <h1>username: <%=documents[i].username %></h1>
+      <h1>Postid: <%=documents[i].postid %></h1>
+      <p>Body: <%-renBody %></p>
+      <p>created: <%-createTime %></p>
+      <p>modified: <%-modifiedTime %></p>
+    <%} %>
+    </div>
+    <div>
+      <% if (nextStartPosid) { %>
+        <a href="<%= nextStartPosid %>" id="next_link">Next</a>
+      <% } %>
+    </div>
+  </body>
+</html>

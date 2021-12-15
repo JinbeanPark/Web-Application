@@ -1,0 +1,10 @@
+<html>
+<head></head>>
+<body>
+<div>
+    <div id='preview-title' [innerHTML]="writer.render(reader.parse(post.title))"></div>
+    <div id='preview-body' [innerHTML]="writer.render(reader.parse(post.body))"></div>
+    <div><button id="preview-edit-button" (click)="editPost.emit(post);">Edit</button></div>
+</div>
+</body>>
+</html>

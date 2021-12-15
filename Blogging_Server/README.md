@@ -1,0 +1,2 @@
+Blogging Server Using MongoDB and NodeJS.
+I implemented a Blogging server using the MEAN stack. I write the server-side program that saves and publishes blog posts written by the markdown-editor client. The server-side program is developed using MongoDB, NodeJS, and Express.

@@ -1,0 +1,15 @@
+<html>
+<head>
+    <title> Post List </title>
+</head>
+<body>
+    <UL>
+        <LI><button id='list-new-button' (click)="newPost.emit()">New Post</button></LI>
+        <tr *ngFor="let post of posts" [attr.id]="'list-post-' + post.postid" (click)="openPost.emit(post);">
+        <td>{{ post.created | date: 'MM/dd/yyyy, h:mm:ss a' }}</td>>
+        <td>{{ post.title }}</td>>
+        <td style="white-space: nowrap"></td>
+        </tr>
+    </UL>
+</body>
+</html>
